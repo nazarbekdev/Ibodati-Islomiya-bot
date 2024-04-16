@@ -43,7 +43,8 @@ async def search(message: types.Message):
         url = f'http://127.0.0.1:8000/getdata/{savol_id}'
         response = requests.get(url).json()
         if requests.get(url).status_code == 200:
-            await message.reply(f"- {response['savol']}\n\n• {response['javob']}\n\n"
-                                f"🕒 Bazaga qo'shilgan vaqt: {response['created_at'][:10]}")
+            await message.answer(f"- {response['savol']}\n• {response['javob']}\n\n"
+                                 f"📗  {response['qism']} / {response['bolim']}\n"
+                                 f"🕒  {response['created_at'][:10]}")
         else:
             await message.answer('Serverda xatolik 🤷‍♂️')
