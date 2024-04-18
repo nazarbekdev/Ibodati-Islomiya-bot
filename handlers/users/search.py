@@ -32,7 +32,7 @@ async def search(message: types.Message):
         response = requests.get(url).json()
         if response:
             for i in response:
-                result += (f"-  {i['savol']}\n•  {i['javob'][:50]}...\n"
+                result += (f"-  <b><i>{i['savol']}</i></b>\n•  {i['javob'][:50]}...\n"
                            f"/{i['savol_id']}\n\n")
             time.sleep(1)
             await message.reply(result)
@@ -43,7 +43,7 @@ async def search(message: types.Message):
         url = f'http://127.0.0.1:8000/getdata/{savol_id}'
         response = requests.get(url).json()
         if requests.get(url).status_code == 200:
-            await message.answer(f"- {response['savol']}\n• {response['javob']}\n\n"
+            await message.answer(f"- <b><i>{response['savol']}</i></b>\n• {response['javob']}\n\n"
                                  f"📗  {response['qism']} / {response['bolim']}\n"
                                  f"🕒  {response['created_at'][:10]}")
         else:
