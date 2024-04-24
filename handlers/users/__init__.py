@@ -1,3 +1,4 @@
+# from . import send_message
 from . import help
 from . import start
 from . import kitob

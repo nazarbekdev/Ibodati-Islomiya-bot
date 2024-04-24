@@ -1,19 +1,10 @@
 import time
-
 import requests
 from aiogram import types
 from aiogram.dispatcher.filters import CommandStart
 from loader import dp
 
 
-# @dp.message_handler(CommandStart())
-# async def answer_result(message: types.Message):
-#     res_num = ['/1', '/2', '/3', '/4', '/5', '/6', '/7', '/8', '/9']
-#     if message.text[:2] in res_num:
-#         await message.reply(message.text)
-#
-
-# Echo bot
 @dp.message_handler(commands=["search"])
 async def search_understand(message: types.Message):
     await message.answer("❌ Quyidagicha qidirish xato: Nafl namoz qanday o'qiladi?\n"
